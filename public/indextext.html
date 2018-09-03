@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google Photos API Quickstart</title>
+    <meta charset="utf-8" />
+    <style>
+        [class^=year]{
+            position: relative;
+        }
+        [class^=year]:hover{
+            z-index: 1;
+        }
+        img{
+            max-width: 100%
+        }
+        .img-full-size{
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .img-thumbnail:hover + .img-full-size, .img-full-size:hover{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<p>Google Photos API Quickstart</p>
+
+<!--Add buttons to initiate auth sequence and sign out-->
+<button id="authorize_button" style="display: none;">Authorize</button>
+<button id="signout_button" style="display: none;">Sign Out</button>
+
+<pre id="content"></pre>
+
+<script type="text/javascript" src="googlePhotos.js">
+</script>
+<script type="text/javascript">
+    const googlePhotos = new GooglePhotos()
+</script>
+
+<script async defer src="https://apis.google.com/js/api.js"
+        onload="this.onload=function(){};googlePhotos.handleClientLoad(gapi)"
+        onreadystatechange="if (this.readyState === 'complete') this.onload()">
+</script>
+</body>
+</html>
